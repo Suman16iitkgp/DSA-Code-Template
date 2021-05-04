@@ -14,4 +14,5 @@ lli binary_exponentiation(lli a, lli b, lli mod)
 
     return ans;
 }
+// O(log b)
 cout << binary_exponentiation(a,1e9+7-2,mod);

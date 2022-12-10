@@ -1,3 +1,12 @@
+/*
+There are stones, numbered . For each ( ), the height of Stone is .
+There is a frog who is initially on Stone . He will repeat the following action some number of times to reach
+Stone :
+If the frog is currently on Stone , jump to one of the following: Stone . Here, a
+cost of is incurred, where is the stone to land on.
+Find the minimum possible total cost incurred before the frog reaches Stone .
+*/
+
 #include<bits/stdc++.h>
 using namespace std;
 using lli=long long int;

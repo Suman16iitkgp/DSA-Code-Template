@@ -1,7 +1,7 @@
 /*
-A tree is given of n nodes. There are m values[1-m]. Find count of all valid assignments when all path
-from root to leaf has gcd = 1
-*/  
+Find maximum possible sum possible by taking some nodes if 
+you cannot take neighborhood
+*/
 
 /* Suman Kumar*/
 
@@ -100,41 +100,27 @@ lli mod_sub(lli a, lli b, lli m) {a = a % m; b = b % m; return (((a - b) % m) + 
 lli mod_div(lli a, lli b, lli m) {a = a % m; b = b % m; return (mod_mul(a, mminvprime(b, m), m) + m) % m;}  //only for prime m
 /*--------------------------------------------------------------------------------------------------------------------------*/
 
-lli m, n;
+lli n;
+lli arr[100100];
 vector<lli> g[100100];
-lli dp[100100][20];
+lli dp[100100][2];
 
-lli dfs( lli nn, lli gc, lli pp ){
+void indfs(lli nn, lli pp ){
+    dp[nn][0] = 0;
+    dp[nn][1] = arr[nn];
 
-    if( dp[nn][gc] != -1ll  ){
-        return dp[nn][gc];
-    }
-
-    lli ans = 0;
-    for( lli col = 1; col <=m; col++ ){
-        lli temp = 1;
-        lli countChild = 0;
-        for( auto v:g[nn] ){
-            if( v != pp ){
-                temp *= dfs(v, __gcd(gc, col), nn );
-                countChild++;
-            }
-        }
-
-        if( countChild == 0ll && __gcd(gc, col) == 1ll ){
-            ans +=1;
-        }else{
-            ans += temp;
+    for( auto v:g[nn] ){
+        if( v != pp ){
+            indfs(v, nn);
+            dp[nn][1] += dp[v][0];
+            dp[nn][0] += dp[v][1];
         }
     }
-
-    return dp[nn][gc] = ans;
 }
 
-// Time - O(n*m2)
+// O(n)
 
 void solve(){
-    cin >> m;
     cin >> n;
 
     for( lli i=1; i<n; i++ ){
@@ -144,11 +130,15 @@ void solve(){
         g[b].push_back(a);
     }
 
-    memset( dp, -1, sizeof(dp) );
-    lli ans = dfs(1, 0, 0 );
+    for( lli i=1; i<=n; i++ ){
+        cin >> arr[i];
+    }
 
-    cout << ans << "\n";
+    memset( dp, -1, sizeof(dp) );
+    indfs(1, 0);
+    lli ans = max( dp[1][0] , dp[1][1] );
 }
+
 
 signed main()
 {
@@ -164,4 +154,4 @@ signed main()
     // cerr << endl;
     // cerr << "Time: " << elapsed_secs  << endl;
     return 0;
-}
+} 

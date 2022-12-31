@@ -1,3 +1,12 @@
+/*
+Description
+There are N Ranks and M students in a class. Each student has a happiness value for the rank in the class he gets. The i th Student gets happy[i][j] on getting a rank j. It's ok to not keep all students in the ranks (They get 0 happiness). At most one student can be assigned to a rank. The total happiness of the assignment can be calculated as Sum of Happiness of each of the students in the class. Find the best way to calculate.
+Input Format
+The first line contains an integer T (1 ≤ T ≤ 200) - the number of testcases.
+The first line of each test case contains two space-separated integers N, M. 1 ≤ N ≤ 10, 1 ≤ M ≤ 50.
+The next M lines contain N integers, 0 ≤ happy[i][j] ≤ 10^5.
+*/
+
 /* Suman Kumar*/
 
 // #ifdef LOCAL

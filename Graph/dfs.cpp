@@ -1,13 +1,11 @@
+#include<bits/stdc++.h>
+using namespace std;
 int n,m;
 vector<vector<int> > g;
 vector<int> vis;
 
 void dfs(int node, int comp)
 {
-    //
-    // Debugging
-    cout << "NODE" << " " << node << " " << " COMP" << comp <<"\n";
-    //
     
     vis[node]=comp;
     for(auto v:g[node])

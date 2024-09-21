@@ -1,3 +1,7 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+
 /*
 Your task is to place eight queens on a chessboard so that no two queens are attacking each other. 
 As an additional challenge, each square is either free or reserved, and you can only place queens on the free squares. 

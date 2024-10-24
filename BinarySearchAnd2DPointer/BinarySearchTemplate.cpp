@@ -3,6 +3,7 @@ You are given two integers N and S. Find the number of positive integers X less 
 such that the difference between X and the sum of its digits (in decimal representation) is not less than S.
 */
 
+
 bool check(int mid, int s){
     int digSum = 0;
     int temp = mid;

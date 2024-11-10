@@ -3,12 +3,12 @@ vector<int> top_or;
 vector<vector<int> > g;
 int n,m;
 int vis[100100];
-int in[100100],low[100100];
+int tin[100100],low[100100];
 int time=0;
 set<ii> st; 
 void dfs(int nd,int par)
 {
-    in[nd]=low[nd]=time++;
+    tin[nd]=low[nd]=time++;
     vis[nd]=1;
 
     for(int v:g[nd])
@@ -17,9 +17,9 @@ void dfs(int nd,int par)
         {
             continue;
         }
-        if(vis[nd]){
+        if(vis[v]){
             // Backward edge
-            low[nd]=min(low[nd],in[v]);
+            low[nd]=min(low[nd],tin[v]);
         }
         dfs(v,nd);
         low[nd]=min(low[nd], low[v]);

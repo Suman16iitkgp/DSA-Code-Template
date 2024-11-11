@@ -25,7 +25,7 @@ void dfs(int nd,int par)
         low[nd]=min(low[nd], low[v]);
 
         if(low[v]>tin[nd]){
-            bridge.insert({u,v});
+            bridge.insert({nd,v});
         }
     }
 }

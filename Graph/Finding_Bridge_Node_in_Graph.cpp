@@ -6,12 +6,12 @@ int vis[100100];
 int tin[100100],low[100100];
 int time=0;
 set<ii> st; 
-void dfs(int nd,int par)
+void dfs(int u,int par)
 {
-    tin[nd]=low[nd]=time++;
-    vis[nd]=1;
+    tin[u]=low[u]=time++;
+    vis[u]=1;
 
-    for(int v:g[nd])
+    for(int v:g[u])
     {
         if(v==par)
         {
@@ -19,13 +19,13 @@ void dfs(int nd,int par)
         }
         if(vis[v]){
             // Backward edge
-            low[nd]=min(low[nd],tin[v]);
+            low[u]=min(low[u],tin[v]);
         }
-        dfs(v,nd);
-        low[nd]=min(low[nd], low[v]);
+        dfs(v,u);
+        low[u]=min(low[u], low[v]);
 
-        if(low[v]>tin[nd]){
-            bridge.insert({nd,v});
+        if(low[v]>tin[u]){
+            bridge.insert({u,v});
         }
     }
 }

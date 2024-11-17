@@ -20,13 +20,16 @@ void dfs(int u,int par)
         if(vis[v]){
             // Backward edge
             low[u]=min(low[u],tin[v]);
+        }else{
+            dfs(v,u);
+            low[u]=min(low[u], low[v]);
+            if(low[v]>tin[u]){
+                bridge.insert({u,v});
+            }
         }
-        dfs(v,u);
-        low[u]=min(low[u], low[v]);
+        
 
-        if(low[v]>tin[u]){
-            bridge.insert({u,v});
-        }
+        
     }
 }
 

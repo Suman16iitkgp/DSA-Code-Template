@@ -81,7 +81,7 @@ void indfs( lli nn , lli pp ){
         if( v != pp ){
             indfs(v, nn);
             sz[nn] += sz[v];
-            indp[nn] += indp[nn] + sz[v];
+            indp[nn] += indp[v] + sz[v];
         }
     }
 }

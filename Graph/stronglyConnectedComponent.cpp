@@ -1,3 +1,9 @@
+/*
+A game has n planets, connected by m teleporters. 
+Two planets a and b belong to the same kingdom exactly when there is a route both from a to b and from b to a. 
+Your task is to determine for each planet its kingdom.
+*/
+
 #include<bits/stdc++.h>
 using namespace std;
 

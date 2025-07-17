@@ -20,6 +20,7 @@ void computePrefixSum(int n, int m) {
     }
 }
 
+
 int queryRectangleSum(int U, int L, int D, int R) {
     // Calculate the sum of values in the specified rectangle
     int ans = P[D][R];

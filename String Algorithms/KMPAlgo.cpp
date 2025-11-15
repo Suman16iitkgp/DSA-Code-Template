@@ -24,6 +24,26 @@ void solve()
     cin>>n;
     cin>>s;
     // cout<<s;
+
+    int[] kmp = new int[n];
+
+    // first approach in java
+    kmp[0] = 0;
+
+    for( int i=1; i<n; i++ ){
+        int ind = kmp[i-1];
+        while( ind > 0 && s.charAt(ind) != s.charAt(i) ){
+            ind = kmp[ind-1];
+        }
+        if( s.charAt(ind) == s.charAt(i) ){
+            ind++;
+        }else{
+            ind = 0;
+        }
+        kmp[i] = ind;
+    }
+
+    // second approach
     int kmp[n+1];
     for(lli i=1;i<=n;i++){
         kmp[i]=0;
